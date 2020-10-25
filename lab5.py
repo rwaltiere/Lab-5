@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-banner_N = ['OO     OO', 'OOO    OO', 'OOOO   OO', 'OO OO  OO', 'OO  OO OO', 'OO    OOO']
-banner_O = ['OOOOOOOOO', 'O       O', 'O       O', 'O       O', 'O       O', 'OOOOOOOOO']
-banner_P = ['OOOOOOOOO', 'OO     OO', 'OOOOOOOOO', 'OO       ', 'OO       ', 'OO       ']
-banner_Q = ['OOOOOOOO ', 'OO    OO ', 'OO    OO ', 'OO    OO ', 'OOOOOOOO ', '      OOO']
-banner_R = ['OOOOOOOOO', 'OO     OO', 'OOOOOOOOO', 'OOOO     ', 'OO OOO   ', 'OO   OOO ']
-banner_S = ['OOOOOOOOO', 'OO       ', 'OOOOOOOOO', '       OO', '       OO', 'OOOOOOOOO']
-banner_T = ['OOOOOOOOO', 'OOOOOOOOO', '   OOO   ', '   OOO   ', '   OOO   ', '   OOO   ']
-banner_U = ['OO     OO', 'OO     OO', 'OO     OO', 'OO     OO', 'OOOOOOOOO', 'OOOOOOOOO']
-banner_V = ['OO     OO', 'OO     OO', 'OO     OO', ' OO   OO ', '  OOOOO  ', '   OOO   ']
-banner_W = ['OO  O  OO', 'OO  O  OO', 'OO  O  OO', 'OO  O  OO', 'OO  O  OO', ' OOO OOO ']
-banner_X = ['OO     OO', ' OO   OO ', '  OOOOO  ', '  OOOOO  ', ' OO   OO ', 'OO     OO']
-banner_Y = ['OO     OO', 'OO     OO', ' OO   OO ', '  OO OO  ', '   OOO   ', '   OOO   ']
-banner_Z = ['OOOOOOOOO', '      OOO', '    OOO  ', '  OOO    ', 'OOO      ', 'OOOOOOOOO']
-
-def display_banner_vertical(letter):
-    for row in letter:
-        print(row)
-
-def display_banner_horizontally(letter1, letter2):
-    for row in range(6):
-        print(f'{letter1[row]}  {letter2[row]}')
-
-=======
 # Richard Waltiere rcw232@nau.edu
 # Joshua Walsh jpw273@nau.edu 
 
@@ -42,6 +18,10 @@ def main():
         banner_choice = banner_choice.upper()
         
         banner_letters = transform_to_list(banner_choice)
+
+    if len(banner_letters) > 31:
+        print("Banner must be 31 characters or less.")
+        return None
 
     horiz_or_vert = choose_orientation()
     
@@ -102,16 +82,36 @@ def display_line_of_banner(banner_letters, line_to_display):
     for letter in banner_letters:
         current_letter_banner = letter_to_banner[letter]
         print(current_letter_banner[line_to_display], end='  ')
+    
 
 def display_banner_vertical(banner_letters):
     for letter in banner_letters:
         display_letter(letter_to_banner[letter])
 
 def display_banner_horizontal(banner_letters):
-    for line in range(6):
-        display_line_of_banner(banner_letters, line)
+    if len(banner_letters) > 15:
+        banner_words_line1 = banner_letters[:15]
+        banner_words_line2 = banner_letters[15:]
+
+        for line in range(6):
+            display_line_of_banner(banner_words_line1, line)
+            print()
+        
         print()
+
+        for line in range(6):
+            display_line_of_banner(banner_words_line2, line)
+            print()
+
+    else:
+        for line in range(6):
+            display_line_of_banner(banner_letters, line)
+            print()
+
+
+def test_display(alphabet):
+    display_banner_horizontal(alphabet)
+    display_banner_vertical(alphabet)
 
 if __name__ == '__main__':
     main()
->>>>>>> a0c1df04ffe536074c8f41c60e6842797f671363
