@@ -39,6 +39,7 @@ def main():
 
 
 # Receives string input from user. Banner will be created from this input.
+
 def choose_banner():
     choice = input("Please enter the banner word or phrase (letters only): ")
     print()
@@ -47,6 +48,7 @@ def choose_banner():
 
 
 # Detects whether the chosen banner is a valid input.
+
 def valid_choice(banner_letters):
     alphabet = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
@@ -61,7 +63,6 @@ def valid_choice(banner_letters):
 
 
 # User chooses orientation--horizontal or vertical.
-
 
 def choose_orientation():
     print("Would you like your banner to print horizontally or vertically?")
@@ -82,7 +83,6 @@ def choose_orientation():
 # Banner is broken into a list comprised of the
 # individual characters in the banner.
 
-
 def transform_to_list(banner_choice):
     banner_choice = banner_choice.upper()
 
@@ -92,7 +92,6 @@ def transform_to_list(banner_choice):
 
 
 # Displays one full letter of the banner
-
 
 def display_letter(banner_letter):
     for row in banner_letter:
@@ -104,7 +103,6 @@ def display_letter(banner_letter):
 # When six lines have been printed, the entire
 # horizontal banner will be displayed.
 
-
 def display_line_of_banner(banner_letters, line_to_display):
     for letter in banner_letters:
         current_letter_banner = letter_to_banner[letter]
@@ -115,7 +113,6 @@ def display_line_of_banner(banner_letters, line_to_display):
 # Only one verical column allowed in the banner; vertical banners cannot
 # be printed side-by-side.
 
-
 def display_banner_vertical(banner_letters):
     for letter in banner_letters:
         display_letter(letter_to_banner[letter])
@@ -124,7 +121,6 @@ def display_banner_vertical(banner_letters):
 # Displays the horizontal banner. Only 15 letters can be printed before
 # letters begin to overlap. The banner is broken up into two horizontal lines
 # if the length of the banner exceeds 15 characters.
-
 
 def display_banner_horizontal(banner_letters):
     if len(banner_letters) > 15:
