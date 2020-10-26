@@ -1,3 +1,6 @@
+# List of ASCII art.  Includes all capital letters of the alphabet.
+# letter_to_banner maps each capital letter to its corresponding banner.
+
 banner_A = ["    ^    ", "   / \   ","  /   \  "," /=====\ ","||     ||","||     ||"]
 banner_B = ["@BBBBBB\ " , "|       }", "|       }", "@BBBBBBB@", "|       }","@BBBBBB/ "]
 banner_C = ["=========", "||       ", "||       ", "||       ", "||       ", "========="]
